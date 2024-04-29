@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
+import ar.edu.unju.fi.ejercicio2.constantes.Mes;
 import ar.edu.unju.fi.ejercicio2.model.Efemeride;
 
 public class Main {
@@ -17,8 +18,8 @@ public class Main {
 		precargarArray();
 		sc = new Scanner(System.in);
 		
-		arrayEfermeride.add(new Efemeride("AAA", Efemeride.Mes.values()[0],(byte) 12, "Muy lindo mes"));
-		arrayEfermeride.add(new Efemeride("BBB", Efemeride.Mes.values()[2],(byte) 12, "No sé que es una efeméride"));
+		arrayEfermeride.add(new Efemeride("AAA", Mes.values()[0],(byte) 12, "Muy lindo mes"));
+		arrayEfermeride.add(new Efemeride("BBB", Mes.values()[2],(byte) 12, "No sé que es una efeméride"));
 //		System.out.println(arrayEfermeride);
 		
 		int op;
@@ -106,7 +107,7 @@ public class Main {
 			System.out.println("Ingrese Mes del Año para crear la efeméride(1 a 12): ");
 			mesByte = (byte) (sc.nextByte() - 1);
 	        try {
-	        	Efemeride.Mes.valueOf(Efemeride.Mes.values()[mesByte].name());
+	        	Mes.valueOf(Mes.values()[mesByte].name());
 	            break;
 	        } catch (Exception e) {
 	            System.out.println("Error: Debe ingresar un mes válido para la efeméride");
@@ -133,8 +134,9 @@ public class Main {
 		System.out.println("Ingrese el detalle de la efeméride: ");
 		String detalle = sc.nextLine();
 		
-		arrayEfermeride.add(new Efemeride(codigo, Efemeride.Mes.values()[mesByte], dia, detalle));
+		arrayEfermeride.add(new Efemeride(codigo, Mes.values()[mesByte], dia, detalle));
 		System.out.println("---- Efeméride creada!!!! ");
+		System.out.println(arrayEfermeride.get(arrayEfermeride.size() -1));
 	}
 	
 	
@@ -188,7 +190,7 @@ public class Main {
 					System.out.println("Ingrese el nuevo Mes del Año para la efeméride(1 a 12): ");
 					mesByte = (byte) (sc.nextByte() - 1);
 			        try {
-			        	Efemeride.Mes.valueOf(Efemeride.Mes.values()[mesByte].name());
+			        	Mes.valueOf(Mes.values()[mesByte].name());
 			            break;
 			        } catch (Exception e) {
 			            System.out.println("Error: Debe ingresar un mes válido para la efeméride");
@@ -216,11 +218,13 @@ public class Main {
 				System.out.println("Ingrese el detalle de la efeméride: ");
 				String detalle = sc.nextLine();
 
-				efe.setMes(Efemeride.Mes.values()[mesByte]);
+				efe.setMes(Mes.values()[mesByte]);
 				efe.setDia(dia);
 				efe.setDetalle(detalle);
 				
 				System.out.println("---- Efeméride Modificada!!!! ---- ");
+				
+				System.out.println(efe);
 		
 			}else if (arrayEfermeride.get(arrayEfermeride.size()-1) == efe ) {
 				System.out.println("\n Efemeride no encontrado \n ");

@@ -1,5 +1,7 @@
 package ar.edu.unju.fi.ejercicio2.model;
 
+import ar.edu.unju.fi.ejercicio2.constantes.Mes;
+
 public class Efemeride {
 	
 	
@@ -7,10 +9,6 @@ public class Efemeride {
 	private Mes mes;
 	private byte dia;
 	private String detalle;
-	
-	public enum Mes{
-		ENERO, FEBRERO, MARZO, ABRIL, MAYO, JUNIO, JULIO, AGOSTO, SEPTIEMBRE, OCTUBRE, NOVIEMBRE, DICIEMBRE;
-	}
 	
 	public Efemeride() {
 		
