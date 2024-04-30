@@ -89,6 +89,10 @@ public class Main {
 		System.out.println("3 –  Salir.");;	
 	}
 	
+	
+	/**
+	 * Muestra el array de productos
+	 */
 	public static void mostrar() {
 		
 		System.out.println("--------------- Lista de Productos: ");
@@ -97,6 +101,11 @@ public class Main {
 		
 	}
 	
+	
+	/**
+	 * Interfaz con menus para agregar los productos al carrito 
+	 * y realizar el pago con tarjeta o efectivo
+	 */
 	public static void realizarCompra() {
 		
 		System.out.println("--------------- Realizar Compra: ");
@@ -132,8 +141,13 @@ public class Main {
 						for (Producto producto : arrayProductos) {
 							if(producto.getCodigo().compareTo(codigo)==0){
 								
-								carrito.add(producto);
-								System.out.println("\n Producto agregado al carrito \n ");
+								if (producto.getEstado()) {
+									carrito.add(producto);
+									System.out.println("\n Producto agregado al carrito \n ");
+								} else {
+									System.out.println("\n NO hay STOCK del producto \n ");
+								}
+
 								break;
 							}else if (arrayProductos.get(arrayProductos.size()-1) == producto ) {
 								System.out.println("\n Producto no encontrado \n ");
